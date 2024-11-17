@@ -25,7 +25,7 @@ An accessible input component that:
 - icon support
 - `help` text support
 - `error` statuses
-- `tooltip` overlays
+- [ ] `tooltip` overlays
 
 ## Avatar
 

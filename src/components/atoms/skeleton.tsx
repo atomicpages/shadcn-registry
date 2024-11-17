@@ -7,7 +7,11 @@ type SkeletonTableProps = {
   className?: string;
 };
 
-export const SkeletonTable: React.FC<SkeletonTableProps> = ({ rows, cols, className }) => {
+export const SkeletonTable: React.FC<SkeletonTableProps> = ({
+  rows,
+  cols,
+  className,
+}) => {
   return (
     <table className={cn("w-full h-64", className)}>
       <tbody>
@@ -25,6 +29,4 @@ export const SkeletonTable: React.FC<SkeletonTableProps> = ({ rows, cols, classN
   );
 };
 
-export const SkeletonCards = () => {
-
-}
+export const SkeletonCards = () => {};
