@@ -1,6 +1,6 @@
 import { forwardRef, useId } from "react";
 import { Input as BaseInput } from "@/components/ui/input";
-import { AriaLabelProps } from "@/typings/aria";
+import { AriaLabelProps } from "@/lib/aria";
 import { cn } from "@/lib/utils";
 import { Label } from "../ui/label";
 

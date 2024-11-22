@@ -1,6 +1,6 @@
 import { forwardRef, useId } from "react";
 import { Checkbox as BaseCheckbox } from "../ui/checkbox";
-import type { AriaBaseProps } from "@/typings/aria";
+import type { AriaBaseProps } from "@/lib/aria";
 import { Label } from "../ui/label";
 
 type CheckboxProps = Omit<
