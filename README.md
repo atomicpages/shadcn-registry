@@ -13,6 +13,7 @@ An enhanced button component that includes:
 - left icons
 - right icons
 - type enhancements
+- [ ] `tooltip` overlays
 
 ## Input
 
@@ -38,9 +39,9 @@ Adds:
 
 Add skeleton templates including:
 
-- cards
-- tables
-- sensible colors
+- [ ] cards
+- [ ] tables
+- [ ] sensible colors
 
 ## HelpIcon
 

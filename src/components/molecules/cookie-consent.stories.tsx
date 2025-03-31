@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { CookieConsent } from "./CookieConsent";
+import { CookieConsent } from "./cookie-consent";
 import { Button } from "../ui/button";
 
 const meta: Meta<typeof CookieConsent> = {
