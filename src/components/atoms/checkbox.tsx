@@ -1,7 +1,7 @@
 import { forwardRef, useId } from "react";
-import { Checkbox as BaseCheckbox } from "../ui/checkbox";
+import { Checkbox as BaseCheckbox } from "@/components/ui/checkbox";
 import type { AriaBaseProps } from "@/lib/aria";
-import { Label } from "../ui/label";
+import { Label } from "@/components/ui/label";
 
 type CheckboxProps = Omit<
   React.ComponentPropsWithoutRef<typeof BaseCheckbox>,

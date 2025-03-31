@@ -14,11 +14,10 @@ jobs:
       - run: bun install
       - run: bun build-storybook
       - run: bun registry:build
-      - run: bun build-storybook
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: storybook-static
           branch: gh-pages
           clean: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}

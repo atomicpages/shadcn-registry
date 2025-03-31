@@ -8,6 +8,7 @@
       "type": "registry:component",
       "title": "Avatar",
       "description": "A simple avatar component.",
+      "registryDependencies": ["avatar"],
       "files": [
         {
           "path": "./src/components/atoms/avatar.tsx",
@@ -19,6 +20,7 @@
       "name": "input",
       "type": "registry:component",
       "title": "Input",
+      "registryDependencies": ["input"],
       "description": "A simple input component.",
       "files": [
         {
@@ -31,6 +33,7 @@
       "name": "textarea",
       "type": "registry:component",
       "title": "Textarea",
+      "registryDependencies": ["textarea"],
       "description": "A simple textarea component.",
       "files": [
         {
@@ -43,6 +46,8 @@
       "name": "help-icon",
       "type": "registry:component",
       "title": "Help Icon",
+      "registryDependencies": ["tooltip"],
+      "dependencies": ["lucide-react"],
       "description": "A simple help icon component.",
       "files": [
         {
@@ -56,6 +61,7 @@
       "type": "registry:component",
       "title": "Checkbox",
       "description": "A simple checkbox component.",
+      "registryDependencies": ["checkbox", "label"],
       "files": [
         {
           "path": "./src/components/atoms/checkbox.tsx",
@@ -67,6 +73,8 @@
       "name": "button",
       "type": "registry:component",
       "title": "Button",
+      "registryDependencies": ["button"],
+      "dependencies": ["lucide-react", "class-variance-authority"],
       "description": "A simple button component.",
       "files": [
         {
@@ -77,13 +85,15 @@
     },
     {
       "name": "cookie-consent",
-      "type": "registry:block",
+      "type": "registry:component",
       "title": "Cookie Consent",
       "description": "A simple cookie consent component.",
+      "registryDependencies": ["dialog", "switch", "button", "badge"],
+      "dependencies": ["lucide-react"],
       "files": [
         {
           "path": "./src/components/molecules/cookie-consent.tsx",
-          "type": "registry:block"
+          "type": "registry:component"
         }
       ]
     }

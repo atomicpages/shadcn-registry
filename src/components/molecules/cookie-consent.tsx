@@ -1,5 +1,3 @@
-"use client";
-
 // heavily inspired by https://github.com/r2hu1/shadcn-cookie-consent
 // thanks r2hu1!
 
@@ -9,7 +7,7 @@ import { CookieIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-import { Button } from "../atoms/button";
+import { Button } from "@/components/atoms/button";
 import { Badge } from "@/components/ui/badge";
 
 import {
@@ -20,7 +18,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Switch } from "../ui/switch";
+import { Switch } from "@/components/ui/switch";
 
 type CookieConsentProps = {
   onAcceptCallback?: VoidFunction;
