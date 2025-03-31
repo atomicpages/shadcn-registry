@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-vite";
+import path from "node:path";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -14,14 +15,19 @@ const config: StorybookConfig = {
     options: {},
   },
   async viteFinal(config) {
-    const { mergeConfig } = await import('vite');
-    const { default: tailwind } = await import('@tailwindcss/vite');
- 
+    const { mergeConfig } = await import("vite");
+    const { default: tailwind } = await import("@tailwindcss/vite");
+
     return mergeConfig(config, {
       optimizeDeps: {
-        include: ['storybook-dark-mode'],
+        include: ["storybook-dark-mode"],
       },
       plugins: [tailwind()],
+      resolve: {
+        alias: {
+          "@": path.resolve(__dirname, "../src"),
+        },
+      },
     });
   },
 };

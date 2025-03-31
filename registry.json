@@ -1,0 +1,91 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "acme",
+  "homepage": "https://acme.com",
+  "items": [
+    {
+      "name": "avatar",
+      "type": "registry:component",
+      "title": "Avatar",
+      "description": "A simple avatar component.",
+      "files": [
+        {
+          "path": "./src/components/atoms/avatar.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:component",
+      "title": "Input",
+      "description": "A simple input component.",
+      "files": [
+        {
+          "path": "./src/components/atoms/input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:component",
+      "title": "Textarea",
+      "description": "A simple textarea component.",
+      "files": [
+        {
+          "path": "./src/components/atoms/textarea.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "help-icon",
+      "type": "registry:component",
+      "title": "Help Icon",
+      "description": "A simple help icon component.",
+      "files": [
+        {
+          "path": "./src/components/atoms/help-icon.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:component",
+      "title": "Checkbox",
+      "description": "A simple checkbox component.",
+      "files": [
+        {
+          "path": "./src/components/atoms/checkbox.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:component",
+      "title": "Button",
+      "description": "A simple button component.",
+      "files": [
+        {
+          "path": "./src/components/atoms/button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "cookie-consent",
+      "type": "registry:block",
+      "title": "Cookie Consent",
+      "description": "A simple cookie consent component.",
+      "files": [
+        {
+          "path": "./src/components/molecules/cookie-consent.tsx",
+          "type": "registry:block"
+        }
+      ]
+    }
+  ]
+}
