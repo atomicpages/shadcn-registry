@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "acme",
-  "homepage": "https://acme.com",
+  "homepage": "https://atomicpages.github.io/shadcn-registry/registry",
   "items": [
     {
       "name": "avatar",

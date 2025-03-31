@@ -4,12 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prebuild": "tsc --noEmit",
-    "registry:build": "shadcn build",
+    "build": "shadcn build -o storybook-static/registry",
     "build-storybook": "storybook build",
     "lint": "eslint .",
     "prepare": "husky",
-    "storybook": "storybook dev -p 6006"
+    "sb": "storybook dev -p 6006"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.3",
