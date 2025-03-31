@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button",
+  "type": "registry:component",
+  "title": "Button",
+  "description": "A simple button component.",
+  "dependencies": [
+    "lucide-react",
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "./src/components/atoms/button.tsx",
+      "content": "import { ComponentProps, forwardRef } from \"react\";\n\nimport { LoaderCircle } from \"lucide-react\";\n\nimport { Button as BaseButton, buttonVariants } from \"@/components/ui/button\";\n\nimport { cn } from \"@/lib/utils\";\nimport { VariantProps } from \"class-variance-authority\";\n\nexport type ButtonProps = ComponentProps<typeof BaseButton> & {\n  loading?: boolean;\n  auto?: boolean;\n  leftIcon?: React.ReactNode;\n  rightIcon?: React.ReactNode;\n};\n\nexport type ButtonVariants = VariantProps<typeof buttonVariants>;\n\nexport const Button = forwardRef<HTMLButtonElement, ButtonProps>(\n  (\n    {\n      children,\n      loading,\n      disabled,\n      className,\n      auto,\n      leftIcon,\n      rightIcon,\n      ...rest\n    },\n    ref,\n  ) => {\n    return (\n      <BaseButton\n        className={cn(\n          \"mr-2 last:mr-0\",\n          (disabled || loading) &&\n            \"disabled:cursor-not-allowed pointer-events-none\",\n          auto && \"w-full\",\n          className,\n        )}\n        disabled={disabled}\n        ref={ref}\n        {...rest}>\n        {leftIcon}\n        {children}\n        {loading ? <LoaderCircle className=\"animate-spin\" /> : null}\n        {!loading && rightIcon ? rightIcon : null}\n      </BaseButton>\n    );\n  },\n);\n\nButton.displayName = \"Button\";\n",
+      "type": "registry:component"
+    }
+  ]
+}

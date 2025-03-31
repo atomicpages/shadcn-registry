@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar",
+  "type": "registry:component",
+  "title": "Avatar",
+  "description": "A simple avatar component.",
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "./src/components/atoms/avatar.tsx",
+      "content": "import { ComponentPropsWithoutRef, forwardRef } from \"react\";\n\nimport * as BaseAvatar from \"@/components/ui/avatar\";\nimport { cn } from \"@/lib/utils\";\n\nexport const Avatar = forwardRef<\n  HTMLDivElement,\n  ComponentPropsWithoutRef<(typeof BaseAvatar)[\"Avatar\"]> & {\n    alert?: boolean;\n    alertClassName?: string;\n  }\n>(({ alert, alertClassName, children, ...rest }, ref) => {\n  return (\n    <div className=\"relative w-min\">\n      <BaseAvatar.Avatar ref={ref} {...rest}>\n        {children}\n      </BaseAvatar.Avatar>\n      {alert && (\n        <div\n          className={cn(\n            \"absolute top-0 right-0 w-3 h-3 bg-red-500 rounded-full border-2 border-white\",\n            alertClassName,\n          )}\n        />\n      )}\n    </div>\n  );\n});\n\nAvatar.displayName = BaseAvatar.Avatar.displayName;\n\nexport const AvatarImage = BaseAvatar.AvatarImage;\nexport const AvatarFallback = BaseAvatar.AvatarFallback;\n",
+      "type": "registry:component"
+    }
+  ]
+}

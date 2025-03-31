@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "help-icon",
+  "type": "registry:component",
+  "title": "Help Icon",
+  "description": "A simple help icon component.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "tooltip"
+  ],
+  "files": [
+    {
+      "path": "./src/components/atoms/help-icon.tsx",
+      "content": "import { CircleHelp } from \"lucide-react\";\n\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipProvider,\n  TooltipTrigger,\n} from \"@/components/ui/tooltip\";\n\nexport const HelpIcon: React.FC<{\n  children: React.ReactNode;\n}> = ({ children }) => (\n  <TooltipProvider>\n    <Tooltip>\n      <TooltipTrigger className=\"relative cursor-help\" asChild>\n        <span className=\"inline-flex align-middle\">\n          <CircleHelp size={16} />\n        </span>\n      </TooltipTrigger>\n      <TooltipContent className=\"bg-black/75 text-white border-transparent text-xs max-w-60\">\n        {children}\n      </TooltipContent>\n    </Tooltip>\n  </TooltipProvider>\n);\n",
+      "type": "registry:component"
+    }
+  ]
+}

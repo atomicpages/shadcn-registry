@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input",
+  "type": "registry:component",
+  "title": "Input",
+  "description": "A simple input component.",
+  "registryDependencies": [
+    "input"
+  ],
+  "files": [
+    {
+      "path": "./src/components/atoms/input.tsx",
+      "content": "import { forwardRef, useId } from \"react\";\nimport { Input as BaseInput } from \"@/components/ui/input\";\nimport { AriaLabelProps } from \"@/lib/aria\";\nimport { cn } from \"@/lib/utils\";\nimport { Label } from \"../ui/label\";\n\nexport type InputProps = AriaLabelProps<\n  React.ComponentProps<typeof BaseInput>\n> & {\n  error?: boolean;\n  help?: React.ReactNode;\n  auto?: boolean;\n  outerClassName?: string;\n};\n\nexport const Input = forwardRef<HTMLInputElement, InputProps>(\n  (\n    {\n      label,\n      \"aria-label\": ariaLabel,\n      \"aria-labelledby\": ariaLabelledBy,\n      error,\n      help,\n      auto,\n      outerClassName,\n      required,\n      className,\n      ...rest\n    },\n    ref,\n  ) => {\n    const id = useId();\n    const helpId = useId();\n\n    return (\n      <div\n        className={cn(\n          \"mb-6 last-of-type:mb-0 w-64\",\n          auto && \"w-full\",\n          outerClassName,\n        )}>\n        {label && (\n          <Label className=\"block mb-2\" htmlFor={rest.id ?? id}>\n            {label}\n            {required ? <span className=\"text-red-500\">*</span> : null}\n          </Label>\n        )}\n        <BaseInput\n          ref={ref}\n          aria-label={ariaLabel}\n          aria-labelledby={ariaLabelledBy}\n          id={rest.id ?? id}\n          className={cn(error && \"border-red-500 text-red-500\", className)}\n          {...rest}\n        />\n        {help && (\n          <span id={helpId} className={cn(\"text-xs\", error && \"text-red-500\")}>\n            {help}\n          </span>\n        )}\n      </div>\n    );\n  },\n);\n",
+      "type": "registry:component"
+    }
+  ]
+}

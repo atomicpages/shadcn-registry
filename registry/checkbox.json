@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox",
+  "type": "registry:component",
+  "title": "Checkbox",
+  "description": "A simple checkbox component.",
+  "registryDependencies": [
+    "checkbox",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "./src/components/atoms/checkbox.tsx",
+      "content": "import { forwardRef, useId } from \"react\";\nimport { Checkbox as BaseCheckbox } from \"@/components/ui/checkbox\";\nimport type { AriaBaseProps } from \"@/lib/aria\";\nimport { Label } from \"@/components/ui/label\";\n\ntype CheckboxProps = Omit<\n  React.ComponentPropsWithoutRef<typeof BaseCheckbox>,\n  \"aria-label\" | \"aria-labelledby\"\n> &\n  AriaBaseProps;\n\nexport const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(\n  (\n    {\n      label,\n      \"aria-label\": ariaLabel,\n      \"aria-labelledby\": ariaLabelledBy,\n      ...rest\n    },\n    ref,\n  ) => {\n    const id = useId();\n\n    return (\n      <div className=\"flex items-center space-x-2\">\n        <BaseCheckbox\n          id={rest.id ?? id}\n          ref={ref}\n          aria-label={ariaLabel}\n          aria-labelledby={ariaLabelledBy}\n          {...rest}\n        />\n        <Label\n          htmlFor={rest.id ?? id}\n          className=\"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer\">\n          {label}\n        </Label>\n      </div>\n    );\n  },\n);\n\nCheckbox.displayName = \"Checkbox\";\n",
+      "type": "registry:component"
+    }
+  ]
+}
