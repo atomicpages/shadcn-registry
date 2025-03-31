@@ -11,10 +11,10 @@ jobs:
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-      - uses: bun install
-      - uses: bun build-storybook
-      - uses: bun registry:build
-      - uses: bun build-storybook
+      - run: bun install
+      - run: bun build-storybook
+      - run: bun registry:build
+      - run: bun build-storybook
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
