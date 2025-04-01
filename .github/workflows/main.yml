@@ -14,10 +14,20 @@ jobs:
       - run: bun install
       - run: bun build-storybook
       - run: bun run build
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - uses: actions/upload-pages-artifact@v3
         with:
-          folder: storybook-static
-          branch: gh-pages
-          clean: true
-          token: ${{ secrets.GH_TOKEN }}
+          path: storybook-static
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: "Deploy to GitHub Pages"
+        id: deployment
+        uses: actions/deploy-pages@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
