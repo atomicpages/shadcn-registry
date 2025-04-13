@@ -12,7 +12,7 @@ const variants: ButtonVariants["variant"][] = [
 ];
 
 const meta: Meta<typeof Button> = {
-  title: "Components/Button",
+  title: "Components/Button/Button",
   component: Button,
   tags: ["autodocs"],
   argTypes: {

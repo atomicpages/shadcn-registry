@@ -2,7 +2,7 @@ import { forwardRef, useId } from "react";
 import { Input as BaseInput } from "@/components/ui/input";
 import { AriaLabelProps } from "@/lib/aria";
 import { cn } from "@/lib/utils";
-import { Label } from "../ui/label";
+import { Label } from "@/components/ui/label";
 
 export type InputProps = AriaLabelProps<
   React.ComponentProps<typeof BaseInput>
@@ -11,7 +11,17 @@ export type InputProps = AriaLabelProps<
   help?: React.ReactNode;
   auto?: boolean;
   outerClassName?: string;
+  leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
+  labelClassName?: string;
 };
+
+export const inputVariants =
+  "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base \
+          ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium \
+          file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none \
+          focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 \
+          disabled:cursor-not-allowed disabled:opacity-50 md:text-sm";
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
@@ -20,11 +30,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       "aria-label": ariaLabel,
       "aria-labelledby": ariaLabelledBy,
       error,
-      help,
       auto,
       outerClassName,
-      required,
+      labelClassName,
       className,
+      required,
+      rightIcon,
+      leftIcon,
+      help,
       ...rest
     },
     ref,
@@ -40,9 +53,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           outerClassName,
         )}>
         {label && (
-          <Label className="block mb-2" htmlFor={rest.id ?? id}>
+          <Label
+            className={cn("block mb-1 ml-[2px]", labelClassName)}
+            htmlFor={rest.id ?? id}
+            required={required}>
             {label}
-            {required ? <span className="text-red-500">*</span> : null}
           </Label>
         )}
         <BaseInput
@@ -50,11 +65,24 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           aria-label={ariaLabel}
           aria-labelledby={ariaLabelledBy}
           id={rest.id ?? id}
-          className={cn(error && "border-red-500 text-red-500", className)}
+          aria-invalid={Boolean(error)}
+          aria-errormessage={error}
+          aria-required={required}
+          rightSlot={rightIcon}
+          leftSlot={leftIcon}
+          auto={auto}
+          className={cn(
+            inputVariants,
+            className,
+            rightIcon && "pr-10",
+            leftIcon && "pl-10",
+          )}
           {...rest}
         />
-        {help && (
-          <span id={helpId} className={cn("text-xs", error && "text-red-500")}>
+        {error && (
+          <span
+            id={helpId}
+            className={cn("text-xs ml-[2px] mt-1 text-red-500")}>
             {help}
           </span>
         )}
