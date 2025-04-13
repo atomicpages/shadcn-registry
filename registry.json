@@ -84,6 +84,20 @@
       ]
     },
     {
+      "name": "icon-button",
+      "type": "registry:component",
+      "title": "Icon Button",
+      "registryDependencies": [],
+      "dependencies": ["lucide-react", "class-variance-authority"],
+      "description": "A simple icon button component.",
+      "files": [
+        {
+          "path": "./src/components/atoms/icon-button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "cookie-consent",
       "type": "registry:component",
       "title": "Cookie Consent",
